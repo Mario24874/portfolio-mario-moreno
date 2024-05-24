@@ -1,0 +1,50 @@
+.footer {
+  background-color: transparent;
+  color: #070707;
+  padding: 10px;
+  height: auto; /* Ajuste de altura automática */
+  width: 100%;
+  text-align: center;
+}
+
+.location,
+.social-icons,
+.copyright {
+  margin-bottom: 10px;
+}
+
+.social-icons a {
+  margin: 0 10px;
+  color: #fff;
+}
+
+.App.dark-mode .footer {
+  background-color: transparent;
+  color: #f0f0f0;
+}
+
+.App.dark-mode .social-icons a {
+  color: #f0f0f0;
+}
+
+@media only screen and (max-width: 768px) {
+  /* Estilos para pantallas más pequeñas, como teléfonos móviles */
+  .footer {
+    padding: 5px;
+  }
+
+  .social-icons a {
+    margin: 0 5px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  /* Estilos para pantallas aún más pequeñas */
+  .footer {
+    padding: 3px;
+  }
+
+  .social-icons a {
+    margin: 0 3px;
+  }
+}
