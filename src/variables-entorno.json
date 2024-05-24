@@ -1,0 +1,10 @@
+{
+    "RAILS_MASTER_KEY": "tu_clave_maestra",
+    "SECRET_KEY_BASE": "tu_clave_secreta",
+    "LANG": "en_US.UTF-8",
+    "RACK_ENV": "production",
+    "RAILS_ENV": "production",
+    "RAILS_LOG_TO_STDOUT": "enabled",
+    "RAILS_SERVE_STATIC_FILES": "enabled"
+  }
+  
