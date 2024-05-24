@@ -1,10 +1,11 @@
-const express = require('express');
-const nodemailer = require('nodemailer');
+import express, { json } from 'express';
+import { createTransport } from 'nodemailer';
+
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // Configuración de Nodemailer
-const transporter = nodemailer.createTransport({
+const transporter = createTransport({
   service: 'gmail',
   auth: {
     user: 'marioivanmorenopineda@gmail.com',
@@ -12,7 +13,7 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-app.use(express.json());
+app.use(json());
 
 app.post('/api/contact', (req, res) => {
   const { name, email, message } = req.body;
