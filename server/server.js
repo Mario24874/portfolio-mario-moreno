@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const { json } = require('express');
 const nodemailer = require('nodemailer');
@@ -15,8 +17,8 @@ const envConfig = JSON.parse(fs.readFileSync(variablesEntornoPath, 'utf8'));
 const transporter = nodemailer.createTransport({
   service: envConfig.service,
   auth: {
-    user: envConfig.user,
-    pass: envConfig.pass
+    user: process.env.MAIL_USERNAME,
+    pass: process.env.MAIL_PASSWORD
   }
 });
 
@@ -26,8 +28,8 @@ app.post('/api/contact', (req, res) => {
   const { name, email, message } = req.body;
 
   const mailOptions = {
-    from: envConfig.user,
-    to: envConfig.user,
+    from: process.env.MAIL_USERNAME,
+    to: process.env.MAIL_USERNAME,
     subject: 'Nuevo mensaje de contacto',
     text: `
       Nombre: ${name}
