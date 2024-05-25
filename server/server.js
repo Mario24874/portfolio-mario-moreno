@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config({ path: './src/.env' });
 
 const express = require('express');
 const { json } = require('express');
@@ -9,13 +9,10 @@ const fs = require('fs');
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Ruta al archivo variables-entorno.json
-const variablesEntornoPath = path.resolve(__dirname, '../src/variables-entorno.json');
-const envConfig = JSON.parse(fs.readFileSync(variablesEntornoPath, 'utf8'));
 
 // Configuración de Nodemailer con las variables de entorno
 const transporter = nodemailer.createTransport({
-  service: envConfig.service,
+  service: 'gmail',
   auth: {
     user: process.env.MAIL_USERNAME,
     pass: process.env.MAIL_PASSWORD
