@@ -1,8 +1,8 @@
-import express from 'express';
-import { json } from 'express';
-import { createTransport } from 'nodemailer';
-import path from 'path';
-import fs from 'fs';
+const express = require('express');
+const { json } = require('express');
+const nodemailer = require('nodemailer');
+const path = require('path');
+const fs = require('fs');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -12,7 +12,7 @@ const variablesEntornoPath = path.resolve(__dirname, '../variables-entorno.json'
 const envConfig = JSON.parse(fs.readFileSync(variablesEntornoPath, 'utf8'));
 
 // Configuración de Nodemailer con las variables de entorno
-const transporter = createTransport({
+const transporter = nodemailer.createTransport({
   service: envConfig.service,
   auth: {
     user: envConfig.user,
@@ -50,3 +50,5 @@ app.post('/api/contact', (req, res) => {
 app.listen(port, () => {
   console.log(`Servidor en ejecución en el puerto ${port}`);
 });
+
+module.exports = app;
