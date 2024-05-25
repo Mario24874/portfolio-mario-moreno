@@ -1,15 +1,22 @@
-import express, { json } from 'express';
+import express from 'express';
+import { json } from 'express';
 import { createTransport } from 'nodemailer';
+import path from 'path';
+import fs from 'fs';
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Configuración de Nodemailer
+// Ruta al archivo variables-entorno.json
+const variablesEntornoPath = path.resolve(__dirname, '../variables-entorno.json');
+const envConfig = JSON.parse(fs.readFileSync(variablesEntornoPath, 'utf8'));
+
+// Configuración de Nodemailer con las variables de entorno
 const transporter = createTransport({
-  service: 'gmail',
+  service: envConfig.service,
   auth: {
-    user: 'marioivanmorenopineda@gmail.com',
-    pass: 'CHUFLETE24'
+    user: envConfig.user,
+    pass: envConfig.pass
   }
 });
 
@@ -19,8 +26,8 @@ app.post('/api/contact', (req, res) => {
   const { name, email, message } = req.body;
 
   const mailOptions = {
-    from: 'marioivanmorenopineda@gmail.com',
-    to: 'marioivanmorenopineda@gmail.com',
+    from: envConfig.user,
+    to: envConfig.user,
     subject: 'Nuevo mensaje de contacto',
     text: `
       Nombre: ${name}
