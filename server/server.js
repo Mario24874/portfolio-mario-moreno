@@ -8,7 +8,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Ruta al archivo variables-entorno.json
-const variablesEntornoPath = path.resolve(__dirname, '../variables-entorno.json');
+const variablesEntornoPath = path.resolve(__dirname, '../src/variables-entorno.json');
 const envConfig = JSON.parse(fs.readFileSync(variablesEntornoPath, 'utf8'));
 
 // Configuración de Nodemailer con las variables de entorno
