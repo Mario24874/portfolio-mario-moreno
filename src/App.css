@@ -1,3 +1,4 @@
+/* Estilos globales */
 :root {
   --bg-color-light: #ffffff;
   --text-color-light: #000000;
@@ -8,8 +9,7 @@
 .App {
   text-align: center;
   background-color: var(--bg-color-light);
-  color: var(--text-color-light);
-  min-height: 100vh;
+  color: var(--text-color-light); 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,15 +22,78 @@
   background-repeat: no-repeat;
 }
 
+/* Ajustes para pantallas pequeñas */
+@media only screen and (max-width: 768px) {
+ .App {
+    font-size: calc(8px + 1.5vmin); /* Reduce el tamaño de la fuente */
+  }
+
+ .container {
+    width: 90%;
+    margin: 10px;
+  }
+
+ .container-content {
+    padding: 20px; /* Reduce el padding */
+    max-height: 250px; /* Reduce la altura máxima */
+  }
+
+ .container-header {
+    padding: 8px; /* Reduce el padding */
+  }
+
+ .rounded-image {
+    width: 150px; /* Reduce el tamaño de la imagen redonda */
+    height: 150px;
+  }
+
+ .circle-text {
+    width: 80px; /* Reduce el tamaño del círculo de texto */
+    height: 80px;
+  }
+
+ .circle-text span {
+    font-size: 40px; /* Reduce el tamaño de la fuente del círculo de texto */
+  }
+
+ .welcome-message h1 {
+    font-size: 22px; /* Reduce el tamaño de la fuente del mensaje de bienvenida */
+  }
+}
+
+/* Modo oscuro */
+.App.dark-mode {
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-dark);
+  background-image: url('nightstorm.gif'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Ajustes para pantallas pequeñas en modo oscuro */
+@media only screen and (max-width: 768px) {
+ .App.dark-mode.container {
+    background-color: #333; /* Cambia el color de fondo para mejorar la legibilidad */
+  }
+
+ .App.dark-mode.container-content {
+    max-height: 200px; /* Ajusta la altura máxima para pantallas pequeñas */
+  }
+
+ .App.dark-mode.container-header {
+    padding: 6px; /* Reduce el padding para pantallas pequeñas */
+  }
+}
 
 .App-link {
-  color: #61dafb;
+  color: #50b7d3;
 }
 
 .App.dark-mode {
   background-color: var(--bg-color-dark);
   color: var(--text-color-dark);
-  background-image: url('nightstorm.gif');
+  background-image: url('nightstorm.gif');  
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -43,7 +106,6 @@
 }
 
 .circle-text {
-  position: relative;
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -65,13 +127,6 @@
 
 .App.dark-mode .circle-text span {
   color: var(--text-color-dark);
-}
-
-.container-section {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 40px;
 }
 
 .container-section::-webkit-scrollbar {
@@ -110,16 +165,9 @@
 
 .container.expanded {
   max-height: 500px;
-  background-color: #b3d2f0;
+  background-color: #1979da;
 }
 
-.container-header {
-  background-color: #2196f3;
-  color: #fff;
-  padding: 16px;
-  display: flex;
-  align-items: center;
-}
 
 .container-header img {
   width: 32px;
@@ -133,7 +181,8 @@
 }
 
 .container-content {
-  padding: 30px;
+ 
+  padding: 0;
   overflow-y: auto;
   max-height: 300px;
 }
@@ -161,6 +210,5 @@
   .welcome-message h1 {
     font-size: 24px;
   }
-
-  /* Agrega más estilos específicos para pantallas pequeñas aquí */
+  
 }

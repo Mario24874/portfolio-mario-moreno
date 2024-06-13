@@ -6,7 +6,7 @@ export default defineConfig({
   base: "/",
   plugins: [react()],
   build: {
-    outDir: "./demo",
+    outDir: "./dist",
     minify: 'terser', // Minifica el código JS/CSS
     terserOptions: {
       compress: {
