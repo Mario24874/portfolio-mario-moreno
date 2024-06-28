@@ -4,7 +4,6 @@ import About from './About';
 import Skills from './Skills';
 import Technologies from './Technologies';
 import Projects from './Projects';
-import projectsIcon from '../images/projects-icon.svg';
 import './Sections.css';
 import '../App.css';
 

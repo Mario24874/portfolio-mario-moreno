@@ -89,7 +89,7 @@ const Form = () => {
               ></textarea>
             </div>
             
-            <input type="submit" id="button" value="Send Email" />
+            <input type="submit" id="button" value="Send mail" />
           </form>
         </div>
       )}

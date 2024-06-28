@@ -2,10 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Header from './components/Header';
 import Sections from './components/Sections';
-import Footer from './components/Footer';
+import ImageComponent from './components/ImageComponent';
+import VideoPro from './components/VideoPro'; 
 import Form from './components/Form';
-import clearSkyImage from './clearsky.gif';
-import nightStormImage from './nightstorm.gif';
+import Footer from './components/Footer';
 import './App.css';
 
 function App() {
@@ -13,8 +13,10 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        <Sections />
-        <Form />
+        <Sections />        
+        <ImageComponent />        
+        <VideoPro />
+        <Form /> 
         <Footer />
       </div>
     </Router>
